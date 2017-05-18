@@ -1,0 +1,26 @@
+{
+  "name": "oauth-authorization-header",
+  "main": "./target/src/index.js",
+  "typings": "./target/src/index.d.ts",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json --type-check",
+    "compile": "tsc",
+    "prepublish": "yarn compile && yarn lint"
+  },
+  "files": [
+    "target/src"
+  ],
+  "dependencies": {
+    "qs": "6.4.0",
+    "request": "2.81.0",
+    "tslint": "5.2.0",
+    "tslint-language-service": "0.9.5",
+    "typescript": "2.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "7.0.18",
+    "@types/qs": "6.2.31",
+    "@types/request": "0.0.43"
+  }
+}
