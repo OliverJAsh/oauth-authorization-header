@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es6",
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "sourceMap": true,
+
+        "outDir": "./target/",
+        "plugins": [
+            { "name": "tslint-language-service" }
+        ],
+        "declaration": true
+    },
+    "files": [
+        "./src/request-oauth-typings.d.ts",
+        "./src/index.ts"
+    ]
+}
