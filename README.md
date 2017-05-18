@@ -19,7 +19,11 @@ Twitter:
 ``` ts
 import fetch from 'node-fetch';
 import * as querystring from 'querystring';
-import { getOAuthAuthorizationHeader, OAuthOptions } from 'oauth-authorization-header';
+import { getOAuthAuthorizationHeader, OAuthOptions } from '../src';
+
+const CONSUMER_KEY = 'YOUR_CONSUMER_KEY';
+const CONSUMER_SECRET = 'YOUR_CONSUMER_SECRET';
+const CALLBACK = 'YOUR_CALLBACK';
 
 const hostUrl = 'https://api.twitter.com';
 
@@ -54,6 +58,23 @@ const fetchFromTwitter = ({
         headers,
     });
 };
+
+const getRequestToken = () => (
+    fetchFromTwitter({
+        oAuth: {
+            consumerKey: CONSUMER_KEY,
+            consumerSecret: CONSUMER_SECRET,
+            callback: CALLBACK,
+        },
+        baseUrlPath: `/oauth/request_token`,
+        method: 'POST',
+        queryParams: {},
+    })
+);
+
+getRequestToken().then(response => {
+    // …
+});
 ```
 
 ## Development
