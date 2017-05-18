@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json --type-check",
     "compile": "tsc",
-    "prepublish": "yarn compile && yarn lint"
+    "cleanTarget": "rm -rf ./target/*",
+    "prepublish": "yarn cleanTarget && yarn compile && yarn lint"
   },
   "files": [
     "target"
