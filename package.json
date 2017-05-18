@@ -1,7 +1,7 @@
 {
   "name": "oauth-authorization-header",
-  "main": "./target/src/index.js",
-  "typings": "./target/src/index.d.ts",
+  "main": "./target/index.js",
+  "typings": "./target/index.d.ts",
   "version": "0.0.1",
   "scripts": {
     "lint": "tslint --project tsconfig.json --type-check",
@@ -9,7 +9,7 @@
     "prepublish": "yarn compile && yarn lint"
   },
   "files": [
-    "target/src"
+    "target"
   ],
   "dependencies": {
     "qs": "6.4.0",
