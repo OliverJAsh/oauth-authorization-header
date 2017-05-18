@@ -12,6 +12,50 @@ The library is written in TypeScript and is published in JavaScript with type de
 yarn add oauth-authorization-header
 ```
 
+## Example
+
+Twitter:
+
+``` ts
+import fetch from 'node-fetch';
+import * as querystring from 'querystring';
+import { getOAuthAuthorizationHeader, OAuthOptions } from 'oauth-authorization-header';
+
+const hostUrl = 'https://api.twitter.com';
+
+const fetchFromTwitter = ({
+    oAuth,
+    baseUrlPath,
+    method,
+    queryParams,
+}: {
+    oAuth: OAuthOptions,
+    baseUrlPath: string,
+    method: 'GET' | 'POST' | 'DELETE' | 'PATCH' | 'UPDATE',
+    queryParams: {},
+}) => {
+    const baseUrl = `${hostUrl}${baseUrlPath}`;
+    const paramsStr = Object.keys(queryParams).length > 0
+        ? `?${querystring.stringify(queryParams)}`
+        : '';
+    const url = `${baseUrl}${paramsStr}`;
+
+    const authorizationHeader = getOAuthAuthorizationHeader({
+        oAuth,
+        url,
+        method,
+        queryParams,
+        formParams: {},
+    });
+
+    const headers = { 'Authorization': authorizationHeader };
+    return fetch(url, {
+        method,
+        headers,
+    });
+};
+```
+
 ## Development
 
 ```
