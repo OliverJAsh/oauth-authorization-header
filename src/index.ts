@@ -36,7 +36,11 @@ export const getOAuthAuthorizationHeader = ({
     formParams: {},
 }) => {
     const oauthOptions: RequestOAuthOptions = {
-        callback: oAuth.callback,
+        ...(
+            oAuth.callback !== undefined
+                ? { callback: oAuth.callback }
+                : {}
+        ),
         consumer_key: oAuth.consumerKey,
         consumer_secret: oAuth.consumerSecret,
         ...(
