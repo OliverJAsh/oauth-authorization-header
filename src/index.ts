@@ -14,7 +14,7 @@ const oauth = new OAuth({
 export type OAuthOptions = {
     consumerKey: string,
     consumerSecret: string,
-    callback: string,
+    callback?: string,
     token?: string,
     tokenSecret?: string,
     verifier?: string,
